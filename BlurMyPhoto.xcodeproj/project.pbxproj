@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8B886605FFF0D37ECBC99A1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 700F290F2DDCC554CD21569C /* libPods.a */; };
+		C51394711AEEB13F00E42E1E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C51394701AEEB13F00E42E1E /* UIImage+ImageEffects.m */; };
+		C51394731AEED66C00E42E1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51394721AEED66C00E42E1E /* Images.xcassets */; };
 		C5A2C5781AE9B01600464AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2C5771AE9B01600464AD4 /* AppDelegate.swift */; };
 		C5A2C57A1AE9B01600464AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2C5791AE9B01600464AD4 /* ViewController.swift */; };
 		C5A2C57D1AE9B01600464AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A2C57B1AE9B01600464AD4 /* Main.storyboard */; };
-		C5A2C57F1AE9B01600464AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A2C57E1AE9B01600464AD4 /* Images.xcassets */; };
 		C5A2C5821AE9B01600464AD4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5A2C5801AE9B01600464AD4 /* LaunchScreen.xib */; };
 		C5A2C58E1AE9B01600464AD4 /* BlurMyPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2C58D1AE9B01600464AD4 /* BlurMyPhotoTests.swift */; };
 /* End PBXBuildFile section */
@@ -26,16 +28,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		700F290F2DDCC554CD21569C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C296EB18EEE49C80265C2A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A8CC15AB32E7D3507AD723BC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C513946F1AEEB13F00E42E1E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		C51394701AEEB13F00E42E1E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		C51394721AEED66C00E42E1E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C5A2C5721AE9B01600464AD4 /* BlurMyPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlurMyPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A2C5761AE9B01600464AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5A2C5771AE9B01600464AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5A2C5791AE9B01600464AD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C5A2C57C1AE9B01600464AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C5A2C57E1AE9B01600464AD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C5A2C5811AE9B01600464AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C5A2C5871AE9B01600464AD4 /* BlurMyPhotoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlurMyPhotoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A2C58C1AE9B01600464AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5A2C58D1AE9B01600464AD4 /* BlurMyPhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurMyPhotoTests.swift; sourceTree = "<group>"; };
+		C5AF71421AEEAADA00F44AF6 /* Imports.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Imports.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8B886605FFF0D37ECBC99A1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +65,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61212A3D27B339B41BE195EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				700F290F2DDCC554CD21569C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C5A2C5691AE9B01600464AD4 = {
 			isa = PBXGroup;
 			children = (
+				C51394721AEED66C00E42E1E /* Images.xcassets */,
 				C5A2C5741AE9B01600464AD4 /* BlurMyPhoto */,
 				C5A2C58A1AE9B01600464AD4 /* BlurMyPhotoTests */,
 				C5A2C5731AE9B01600464AD4 /* Products */,
+				F952142EECEADF73538BE166 /* Pods */,
+				61212A3D27B339B41BE195EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +97,14 @@
 		C5A2C5741AE9B01600464AD4 /* BlurMyPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				C513946F1AEEB13F00E42E1E /* UIImage+ImageEffects.h */,
+				C51394701AEEB13F00E42E1E /* UIImage+ImageEffects.m */,
 				C5A2C5771AE9B01600464AD4 /* AppDelegate.swift */,
 				C5A2C5791AE9B01600464AD4 /* ViewController.swift */,
 				C5A2C57B1AE9B01600464AD4 /* Main.storyboard */,
-				C5A2C57E1AE9B01600464AD4 /* Images.xcassets */,
 				C5A2C5801AE9B01600464AD4 /* LaunchScreen.xib */,
 				C5A2C5751AE9B01600464AD4 /* Supporting Files */,
+				C5AF71421AEEAADA00F44AF6 /* Imports.h */,
 			);
 			path = BlurMyPhoto;
 			sourceTree = "<group>";
@@ -112,6 +134,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F952142EECEADF73538BE166 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8CC15AB32E7D3507AD723BC /* Pods.debug.xcconfig */,
+				97C296EB18EEE49C80265C2A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5A2C5911AE9B01600464AD4 /* Build configuration list for PBXNativeTarget "BlurMyPhoto" */;
 			buildPhases = (
+				D7FCF0337F3ED279C5A3BB07 /* Check Pods Manifest.lock */,
 				C5A2C56E1AE9B01600464AD4 /* Sources */,
 				C5A2C56F1AE9B01600464AD4 /* Frameworks */,
 				C5A2C5701AE9B01600464AD4 /* Resources */,
+				52C43D6E07160523544DAFFC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,9 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51394731AEED66C00E42E1E /* Images.xcassets in Resources */,
 				C5A2C57D1AE9B01600464AD4 /* Main.storyboard in Resources */,
 				C5A2C5821AE9B01600464AD4 /* LaunchScreen.xib in Resources */,
-				C5A2C57F1AE9B01600464AD4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +240,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52C43D6E07160523544DAFFC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7FCF0337F3ED279C5A3BB07 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C5A2C56E1AE9B01600464AD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,6 +280,7 @@
 			files = (
 				C5A2C57A1AE9B01600464AD4 /* ViewController.swift in Sources */,
 				C5A2C5781AE9B01600464AD4 /* AppDelegate.swift in Sources */,
+				C51394711AEEB13F00E42E1E /* UIImage+ImageEffects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -336,23 +403,29 @@
 		};
 		C5A2C5921AE9B01600464AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8CC15AB32E7D3507AD723BC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BlurMyPhoto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BlurMyPhoto/Imports.h;
 			};
 			name = Debug;
 		};
 		C5A2C5931AE9B01600464AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97C296EB18EEE49C80265C2A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BlurMyPhoto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BlurMyPhoto/Imports.h;
 			};
 			name = Release;
 		};
@@ -409,6 +482,7 @@
 				C5A2C5931AE9B01600464AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5A2C5941AE9B01600464AD4 /* Build configuration list for PBXNativeTarget "BlurMyPhotoTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +491,7 @@
 				C5A2C5961AE9B01600464AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

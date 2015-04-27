@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BlurMyPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89N-I0-Mme" userLabel="Source Image">
+                                <rect key="frame" x="0.0" y="-2" width="600" height="602"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="17w-RF-7KT" userLabel="Blurred Image">
+                                <rect key="frame" x="0.0" y="-2" width="600" height="602"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pUX-Cu-6D0">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="uKu-i9-X4w"/>
+                                    <barButtonItem title="Select" id="zEx-JK-qfP">
+                                        <connections>
+                                            <action selector="selectPhoto:" destination="BYZ-38-t0r" id="DrZ-h3-tg2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pr3-qC-A1G"/>
+                                    <barButtonItem title="Dark Blur" id="A1M-UH-2b2">
+                                        <connections>
+                                            <action selector="applyDarkBlur:" destination="BYZ-38-t0r" id="jxR-p2-kS0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KZu-iE-Pov"/>
+                                    <barButtonItem title="Save" id="Zqv-c7-aLg">
+                                        <connections>
+                                            <action selector="savePhoto:" destination="BYZ-38-t0r" id="ubX-g7-Pl1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="G0P-Ac-rbL"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="17w-RF-7KT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-22" id="1Xs-dF-qee"/>
+                            <constraint firstItem="89N-I0-Mme" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-22" id="7am-jX-ExK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pUX-Cu-6D0" secondAttribute="trailing" constant="-16" id="Kpu-j5-nqT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pUX-Cu-6D0" secondAttribute="bottom" id="PGw-Td-b3k"/>
+                            <constraint firstItem="pUX-Cu-6D0" firstAttribute="top" secondItem="17w-RF-7KT" secondAttribute="bottom" constant="-44" id="bny-94-Q2x"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="17w-RF-7KT" secondAttribute="bottom" id="cpT-69-xL9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="89N-I0-Mme" secondAttribute="trailing" constant="-16" id="eXa-iO-qBK"/>
+                            <constraint firstItem="89N-I0-Mme" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hPo-2w-LKe"/>
+                            <constraint firstItem="pUX-Cu-6D0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hv2-DO-sto"/>
+                            <constraint firstItem="17w-RF-7KT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="inv-Pe-hqZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="89N-I0-Mme" secondAttribute="bottom" id="ioJ-Uk-r6d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="17w-RF-7KT" secondAttribute="trailing" constant="-16" id="sDW-JR-xkf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bny-94-Q2x"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Goe-SB-Pow"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="blurImage" destination="17w-RF-7KT" id="uJc-0g-wP8"/>
+                        <outlet property="toolbar" destination="pUX-Cu-6D0" id="fFd-t3-mud"/>
+                        <outlet property="userImage" destination="89N-I0-Mme" id="8Cw-EA-rDe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1387" y="397"/>
         </scene>
     </scenes>
 </document>

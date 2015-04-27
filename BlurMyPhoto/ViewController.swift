@@ -8,51 +8,70 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-	var userImage: UIImageView!
+	var imagePicker = UIImagePickerController()
+	
+	@IBOutlet var toolbar: UIToolbar!
+	@IBOutlet var userImage: UIImageView!
+	@IBOutlet var blurImage: UIImageView!
+	
+	@IBAction func applyDarkBlur(sender: AnyObject) {
+		var newImage = userImage.image?.applyDarkEffect()
+		blurImage.image = newImage
+		blurImage.hidden = false
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		userImage = UIImageView(frame: view.frame)
-		userImage.image = UIImage(named: "test")
-		userImage.contentMode = .ScaleAspectFill
-		view.addSubview(userImage)
-		applyBlurEffect(userImage)
+	override func viewWillAppear(animated: Bool) {
+		UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+		super.viewWillAppear(animated)
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
 	
-	func applyBlurEffect(image: UIImageView){
-		var imageToBlur = CIImage(image: image.image)
-		var blurfilter = CIFilter(name: "CIGaussianBlur")
-		blurfilter.setValue(imageToBlur, forKey: "inputImage")
-		blurfilter.setValue(NSNumber(float: 20), forKey: "inputRadius")
-		var resultImage = blurfilter.valueForKey("outputImage") as CIImage
+	func applyBlurEffect(imageView: UIImageView){
 		
-		// this stretches the image
-//		var blurredImage = UIImage(CIImage: resultImage)
+		var quality:CGFloat = 0
+		var blurred:CGFloat = 1
+		var imageData = UIImageJPEGRepresentation(imageView.image, quality)
+		var blurredImage = UIImage(data: imageData)?.blurredImage(blurred)
+		blurImage.image = blurredImage
 		
-		var rect = resultImage.extent()
-		rect.origin.x += (rect.size.width  - userImage.frame.size.width) / 2
-		rect.origin.y += (rect.size.height - userImage.frame.size.height) / 2
-		rect.size = userImage.frame.size
-		
-		var context = CIContext(options: nil)
-		var cgimg = context.createCGImage(resultImage, fromRect: rect)
-		var blurredImage = UIImage(CGImage: cgimg)
-		
-		userImage.image = blurredImage
+	}
+	
+	@IBAction func savePhoto(sender: AnyObject) {
+		UIImageWriteToSavedPhotosAlbum(blurImage.image, nil, nil, nil)
+		RKDropdownAlert.title("Image saved!", backgroundColor: UIColor.blackColor(), textColor: UIColor.whiteColor())
+	}
+	
+	
+	func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+		self.dismissViewControllerAnimated(true, completion: { () -> Void in
+			
+		})
+		userImage.image = image
+		blurImage.hidden = true
 	}
 
+
+	@IBAction func selectPhoto(sender: AnyObject) {
+		if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+			
+			imagePicker.delegate = self
+			imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+			imagePicker.allowsEditing = false
+			
+			self.presentViewController(imagePicker, animated: true, completion: nil)
+		}
+		
+	}
 
 }
 

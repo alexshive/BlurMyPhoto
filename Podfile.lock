@@ -1,0 +1,13 @@
+PODS:
+  - RKDropdownAlert (0.1.1)
+  - UIImage-Helpers (0.0.3)
+
+DEPENDENCIES:
+  - RKDropdownAlert
+  - UIImage-Helpers
+
+SPEC CHECKSUMS:
+  RKDropdownAlert: 3f663f1e852751ad37ce95ed1e8e2c6b9bfdc95b
+  UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
+
+COCOAPODS: 0.35.0
