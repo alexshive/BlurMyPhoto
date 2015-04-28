@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,6 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView alpha="0.25" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="MAa-I9-lyp">
+                                <rect key="frame" x="31" y="524" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Nil-Xx-mPJ"/>
+                                    <constraint firstAttribute="width" constant="32" id="RG8-1D-aE4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46M-Mm-QYO">
+                                <rect key="frame" x="76" y="512" width="508" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="FKI-UF-zNy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89N-I0-Mme" userLabel="Source Image">
                                 <rect key="frame" x="0.0" y="-2" width="600" height="602"/>
                             </imageView>
@@ -26,23 +42,31 @@
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pUX-Cu-6D0">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qEQ-qP-Hod"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="uKu-i9-X4w"/>
-                                    <barButtonItem title="Select" id="zEx-JK-qfP">
+                                    <barButtonItem systemItem="add" id="zEx-JK-qfP" userLabel="Select">
                                         <connections>
                                             <action selector="selectPhoto:" destination="BYZ-38-t0r" id="DrZ-h3-tg2"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pr3-qC-A1G"/>
-                                    <barButtonItem title="Dark Blur" id="A1M-UH-2b2">
-                                        <connections>
-                                            <action selector="applyDarkBlur:" destination="BYZ-38-t0r" id="jxR-p2-kS0"/>
-                                        </connections>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="N4H-yo-27S"/>
+                                    <barButtonItem style="plain" id="rOJ-7H-g3i">
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="30" id="KvN-Vf-kfK">
+                                            <rect key="frame" x="175" y="7" width="200" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="sliderUpdate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ecy-4q-yae"/>
+                                                <action selector="sliderUpdate:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="RtE-g5-L1M"/>
+                                            </connections>
+                                        </slider>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KZu-iE-Pov"/>
-                                    <barButtonItem title="Save" id="Zqv-c7-aLg">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pr3-qC-A1G"/>
+                                    <barButtonItem systemItem="action" id="A1M-UH-2b2">
                                         <connections>
-                                            <action selector="savePhoto:" destination="BYZ-38-t0r" id="ubX-g7-Pl1"/>
+                                            <action selector="selectBlur:" destination="BYZ-38-t0r" id="Hyi-jC-lbM"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="G0P-Ac-rbL"/>
@@ -53,21 +77,40 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="17w-RF-7KT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-22" id="1Xs-dF-qee"/>
+                            <constraint firstAttribute="centerY" secondItem="MAa-I9-lyp" secondAttribute="centerY" id="4zl-K9-xNt"/>
                             <constraint firstItem="89N-I0-Mme" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-22" id="7am-jX-ExK"/>
+                            <constraint firstItem="MAa-I9-lyp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="DqF-Rz-mDK"/>
+                            <constraint firstItem="46M-Mm-QYO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="EPL-QT-PsV"/>
+                            <constraint firstAttribute="centerX" secondItem="46M-Mm-QYO" secondAttribute="centerX" id="GVD-m9-0bP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pUX-Cu-6D0" secondAttribute="trailing" constant="-16" id="Kpu-j5-nqT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pUX-Cu-6D0" secondAttribute="bottom" id="PGw-Td-b3k"/>
+                            <constraint firstAttribute="centerY" secondItem="46M-Mm-QYO" secondAttribute="centerY" id="R1f-mv-TML"/>
+                            <constraint firstItem="pUX-Cu-6D0" firstAttribute="top" secondItem="MAa-I9-lyp" secondAttribute="bottom" id="U1W-Y6-l6u"/>
+                            <constraint firstAttribute="centerX" secondItem="MAa-I9-lyp" secondAttribute="centerX" id="WlW-dT-Bc3"/>
                             <constraint firstItem="pUX-Cu-6D0" firstAttribute="top" secondItem="17w-RF-7KT" secondAttribute="bottom" constant="-44" id="bny-94-Q2x"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="17w-RF-7KT" secondAttribute="bottom" id="cpT-69-xL9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="89N-I0-Mme" secondAttribute="trailing" constant="-16" id="eXa-iO-qBK"/>
+                            <constraint firstItem="pUX-Cu-6D0" firstAttribute="top" secondItem="MAa-I9-lyp" secondAttribute="bottom" constant="2" id="eyT-9Q-g5f"/>
                             <constraint firstItem="89N-I0-Mme" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hPo-2w-LKe"/>
                             <constraint firstItem="pUX-Cu-6D0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hv2-DO-sto"/>
                             <constraint firstItem="17w-RF-7KT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="inv-Pe-hqZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="89N-I0-Mme" secondAttribute="bottom" id="ioJ-Uk-r6d"/>
+                            <constraint firstItem="pUX-Cu-6D0" firstAttribute="top" secondItem="46M-Mm-QYO" secondAttribute="bottom" id="p0V-B2-enh"/>
+                            <constraint firstAttribute="centerY" secondItem="46M-Mm-QYO" secondAttribute="centerY" id="qUC-yR-05d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="17w-RF-7KT" secondAttribute="trailing" constant="-16" id="sDW-JR-xkf"/>
+                            <constraint firstItem="pUX-Cu-6D0" firstAttribute="top" secondItem="46M-Mm-QYO" secondAttribute="bottom" constant="10" id="t1d-e7-Tbw"/>
+                            <constraint firstItem="46M-Mm-QYO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="y8H-Xr-nZU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="4zl-K9-xNt"/>
+                                <exclude reference="WlW-dT-Bc3"/>
+                                <exclude reference="GVD-m9-0bP"/>
+                                <exclude reference="R1f-mv-TML"/>
+                                <exclude reference="qUC-yR-05d"/>
                                 <exclude reference="bny-94-Q2x"/>
+                                <exclude reference="eyT-9Q-g5f"/>
+                                <exclude reference="t1d-e7-Tbw"/>
                             </mask>
                         </variation>
                     </view>
@@ -76,13 +119,17 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="blurImage" destination="17w-RF-7KT" id="uJc-0g-wP8"/>
+                        <outlet property="slider" destination="KvN-Vf-kfK" id="Znx-0n-9je"/>
                         <outlet property="toolbar" destination="pUX-Cu-6D0" id="fFd-t3-mud"/>
                         <outlet property="userImage" destination="89N-I0-Mme" id="8Cw-EA-rDe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1387" y="397"/>
+            <point key="canvasLocation" x="2199" y="397"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow_down" width="64" height="64"/>
+    </resources>
 </document>

@@ -15,44 +15,62 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 	@IBOutlet var toolbar: UIToolbar!
 	@IBOutlet var userImage: UIImageView!
 	@IBOutlet var blurImage: UIImageView!
+	@IBOutlet var slider: UISlider!
 	
-	@IBAction func applyDarkBlur(sender: AnyObject) {
-		var newImage = userImage.image?.applyDarkEffect()
+	var blurRadiusValue:CGFloat = 0.0
+	var tintColorValue = UIColor.clearColor()
+	var saturationValue:CGFloat = 1.0 // 0.0 = desaturated, 1.0 = saturated
+	
+	@IBAction func selectBlur(sender: AnyObject) {
+		selectBlurMenu()
+	}
+	@IBAction func sliderUpdate(sender: AnyObject) {
+		blurRadiusValue = CGFloat(slider.value)
+		applyBlur()
+	}
+	
+	func selectBlurMenu() {
+		let actionSheet = AHKActionSheet(title: "Options")
+		actionSheet.buttonTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+		actionSheet.blurTintColor = UIColor(white: 0.1, alpha: 0.9)
+		actionSheet.addButtonWithTitle("No tint", type: .Default) { (_as) -> Void in
+			self.tintColorValue = UIColor.clearColor()
+			self.applyBlur()
+		}
+		actionSheet.addButtonWithTitle("Dark Tint", type: .Default) { (_as) -> Void in
+			self.tintColorValue = UIColor(white: 0.11, alpha: 0.73)
+			self.applyBlur()
+		}
+		actionSheet.addButtonWithTitle("Light Tint", type: .Default) { (_as) -> Void in
+			self.tintColorValue = UIColor(white: 1.0, alpha: 0.3)
+			self.applyBlur()
+		}
+		actionSheet.addButtonWithTitle("Black and White", type: .Default) { (_as) -> Void in
+			self.saturationValue = 0.0
+			self.applyBlur()
+		}
+		actionSheet.addButtonWithTitle("Color", type: .Default) { (_as) -> Void in
+			self.saturationValue = 1.0
+			self.applyBlur()
+		}
+		actionSheet.addButtonWithTitle("Save", type: .Default) { (_as) -> Void in
+			self.savePhoto()
+		}
+		actionSheet.show()
+	}
+	
+	func applyBlur() {
+		var newImage = userImage.image?.applyBlurWithRadius(blurRadiusValue, tintColor: tintColorValue, saturationDeltaFactor: saturationValue, maskImage: nil)
 		blurImage.image = newImage
 		blurImage.hidden = false
 	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
-	
-	override func viewWillAppear(animated: Bool) {
-		UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-		super.viewWillAppear(animated)
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	func applyBlurEffect(imageView: UIImageView){
-		
-		var quality:CGFloat = 0
-		var blurred:CGFloat = 1
-		var imageData = UIImageJPEGRepresentation(imageView.image, quality)
-		var blurredImage = UIImage(data: imageData)?.blurredImage(blurred)
-		blurImage.image = blurredImage
-		
-	}
-	
-	@IBAction func savePhoto(sender: AnyObject) {
+	func savePhoto() {
 		UIImageWriteToSavedPhotosAlbum(blurImage.image, nil, nil, nil)
 		RKDropdownAlert.title("Image saved!", backgroundColor: UIColor.blackColor(), textColor: UIColor.whiteColor())
 	}
 	
-	
-	func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 		self.dismissViewControllerAnimated(true, completion: { () -> Void in
 			
 		})
@@ -72,6 +90,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 		}
 		
 	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+		super.viewWillAppear(animated)
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
 
 }
 
